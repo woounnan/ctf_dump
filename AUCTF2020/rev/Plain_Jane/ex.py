@@ -21,6 +21,9 @@ def dw_plus(val, add):
 def dw_minus(val, add):
     return (val & high) | ((val - add) & low)
 
+def dw_mul(val, add):
+    return (val & high) | ((val * add) & low)
+
 def dw_sal(val, count):
     sign = 1 << (32 - 1)
     if val | sign == val:
@@ -40,6 +43,8 @@ def func1():
         rax = rdx
         rax = dw_sal(rax, 2)
         rax = dw_plus(rax, rdx)
+        rdx = dw_mul(rax, 4) 
+        rax = dw_plus(rax, rdx)
         rbp_1 = b_plus(rbp_1, rax)
         rbp_8 += 1
     rax = rbp_1
@@ -54,7 +59,6 @@ def func2():
 
 def func3(rdi, rsi):
     rbp_36 = rdi
-    print "val: " + str(rsi)
     rbp_40 = rsi
     if rbp_36 > 64:
         if rbp_40 <= 211:
@@ -107,6 +111,7 @@ def func3(rdi, rsi):
 
 
 rbp_4 = func1()
+print hex(rbp_4)
 rax = 0
 rbp_8 = func2()
 

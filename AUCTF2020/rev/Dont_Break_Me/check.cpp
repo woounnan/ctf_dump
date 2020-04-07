@@ -17,7 +17,6 @@ void getString(char* p_str)
     if ( i > 0x1F )
       break;
     if ( !(i & 1) ){
-	    printf("i:%c\n", blah[i]);
       *(15 - idx++ + p_str) = blah[i];
     }
   }

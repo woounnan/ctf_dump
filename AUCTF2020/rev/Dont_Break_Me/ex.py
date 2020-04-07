@@ -5,7 +5,7 @@ import time
 table_ascii = 'abcdefghijklnmopqrstuvwxyzABCDEFGHIJKLNMOPQRSTUVWXYZ1234567890_+-={}[];\':",./<>?!@#$%^&*()'
 
 key = """
-A...P...R...M...
+X...A...P...R...M...
 X...C...S...B...
 C...E...D...I...
 S...B...V...X...
@@ -16,15 +16,7 @@ R...S...Q...????
 """
 pt = re.compile('[A-Z]')
 
-temp1 = bytearray(pt.findall(key))[0::2]
-print 'key: ' + temp1
-
 key = bytearray(pt.findall(key))[0::2][::-1]
-print 'key: ' + key
-#key = bytearray(list("QRZWJEXIVSDCSXRA"))
-
-
-
 
 def dec(ch):
     #print 'ch: ' + str(ch) + ' & ' + chr(ch)
@@ -43,30 +35,3 @@ def enc(ch):
 
 answer = bytearray(map(dec, list(key)))
 print 'answer : ' + answer
-
-'''
-p = remote('challenges.auctf.com', 30005)
-
-time.sleep(1)
-print p.recvrepeat(0.2)
-
-p.send(answer)
-
-
-p.interactive()
-'''
-
-
-
-
-        
-        
-
-    
-        
-
-
-
-
-
-

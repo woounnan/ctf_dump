@@ -1,2 +1,2 @@
-break *main+78
+break *debugger_check
 
