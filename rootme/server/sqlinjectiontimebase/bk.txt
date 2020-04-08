@@ -1,0 +1,9 @@
+None
+None
+[None, None, None, None, None]
+['', '', '', '', '', '', '']
+['', 'username', 'username', 'username', 'username', 'username$', 'username$']
+['', '', '', '', '', '', '', '', '', '', '', '', '']
+['id', 'iderncme', 'iderncmee', 'iderncmee', 'iderncmee']
+['id', 'idername', 'idernamee', 'idernamee', 'idernamee', 'idernamee', 'idernamee', 'idernameeace', 'idernameeace', 'idernameeace']
+['id', 'username', 'firstnamm', 'lastname', 'email', 'password', 'typname', 'typnamespace', 'typowner', 'typlen']
