@@ -1,0 +1,93 @@
+!!brut.androlib.meta.MetaInfo
+apkFileName: gaiainvaders.apk
+compressionType: false
+doNotCompress:
+- resources.arsc
+- META-INF/androidx.appcompat_appcompat.version
+- META-INF/androidx.arch.core_core-runtime.version
+- META-INF/androidx.asynclayoutinflater_asynclayoutinflater.version
+- META-INF/androidx.coordinatorlayout_coordinatorlayout.version
+- META-INF/androidx.core_core-ktx.version
+- META-INF/androidx.core_core.version
+- META-INF/androidx.cursoradapter_cursoradapter.version
+- META-INF/androidx.customview_customview.version
+- META-INF/androidx.documentfile_documentfile.version
+- META-INF/androidx.drawerlayout_drawerlayout.version
+- META-INF/androidx.fragment_fragment.version
+- META-INF/androidx.interpolator_interpolator.version
+- META-INF/androidx.legacy_legacy-support-core-ui.version
+- META-INF/androidx.legacy_legacy-support-core-utils.version
+- META-INF/androidx.lifecycle_lifecycle-livedata-core.version
+- META-INF/androidx.lifecycle_lifecycle-livedata.version
+- META-INF/androidx.lifecycle_lifecycle-runtime.version
+- META-INF/androidx.lifecycle_lifecycle-viewmodel.version
+- META-INF/androidx.loader_loader.version
+- META-INF/androidx.localbroadcastmanager_localbroadcastmanager.version
+- META-INF/androidx.print_print.version
+- META-INF/androidx.slidingpanelayout_slidingpanelayout.version
+- META-INF/androidx.swiperefreshlayout_swiperefreshlayout.version
+- META-INF/androidx.vectordrawable_vectordrawable-animated.version
+- META-INF/androidx.vectordrawable_vectordrawable.version
+- META-INF/androidx.versionedparcelable_versionedparcelable.version
+- META-INF/androidx.viewpager_viewpager.version
+- assets/archive.0000.dat
+- assets/archive.0001.dat
+- assets/archive.0002.dat
+- assets/archive.0003.dat
+- assets/archive.0004.dat
+- assets/archive.0005.dat
+- assets/archive.0006.dat
+- assets/archive.0007.dat
+- assets/archive.0008.dat
+- assets/archive.0009.dat
+- assets/archive.0010.dat
+- assets/archive.0011.dat
+- assets/archive.0012.dat
+- assets/archive.0013.dat
+- assets/archive.0014.dat
+- assets/archive.0015.dat
+- assets/archive.0016.dat
+- assets/archive.0017.dat
+- assets/archive.0018.dat
+- assets/archive.0019.dat
+- assets/archive.0020.dat
+- assets/archive.0021.dat
+- assets/archive.0022.dat
+- assets/archive.0023.dat
+- assets/archive.0024.dat
+- assets/archive.0025.dat
+- assets/archive.0026.dat
+- assets/archive.0027.dat
+- assets/archive.0028.dat
+- assets/archive.0029.dat
+- assets/archive.0030.dat
+- assets/archive.0031.dat
+- assets/archive.0032.dat
+- assets/archive.0033.dat
+- assets/archive.0034.dat
+- assets/archive.0035.dat
+- assets/archive.0036.dat
+- assets/archive.0037.dat
+- ogg
+- png
+- res/drawable/gaia_logo_cropped.PNG
+isFrameworkApk: false
+packageInfo:
+  forcedPackageId: '127'
+  renameManifestPackage: null
+sdkInfo:
+  minSdkVersion: '15'
+  targetSdkVersion: '29'
+sharedLibrary: false
+sparseResources: false
+unknownFiles:
+  org/bouncycastle/x509/CertPathReviewerMessages.properties: '8'
+  org/bouncycastle/x509/CertPathReviewerMessages_de.properties: '8'
+usesFramework:
+  ids:
+  - 1
+  tag: null
+version: 2.4.1
+versionInfo:
+  versionCode: '1'
+  versionName: '1.0'
