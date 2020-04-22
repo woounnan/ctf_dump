@@ -31,34 +31,33 @@ class myGame:
             for i in range(self.x):
                 for j in range(self.y):
                     self.matrix[j][i] = words[(i + j)]
-
         keyArray = []
         keyArray.append(self.matrix[args[0]][args[1]])
         keyArray.append(self.matrix[args[2]][args[3]])
         key = ''
         for k in keyArray:
             key = key.strip() + str(k).strip()
-
-        print(key)
+        print(len(key))
         return key
 
     def checkdata(self, key):
         f = base64.b64decode('NSYDUhoVWQ8SQVcOAAYRFQkORA4FQVMDQQ5fQhUEWUYMDl4MHA==')
         data = f.decode('ascii')
-        c = ''.join((chr(ord(c) ^ ord(k)) for c, k in zip(data, cycle('a'))))
-        print('%s ^ %s = %s' % (data, key, c))
+        c = ''.join((chr(ord(c) ^ ord(k)) for c, k in zip(data, cycle(key))))
+        print c
+
+    def getKey(self, plain):
+        f = base64.b64decode('NSYDUhoVWQ8SQVcOAAYRFQkORA4FQVMDQQ5fQhUEWUYMDl4MHA==')
+        data = f.decode('ascii')
+        c = ''.join((chr(ord(c) ^ ord(k)) for c, k in zip(data, cycle(plain))))
+        print c
+        
 
 
 if __name__ == '__main__':
     mgame = myGame(25, 25)
-    '''
-    x = input('input a number: ')
-    y = input('input a number: ')
-    x1 = input('input a number: ')
-    y1 = input('input a number: ')
-
-    '''
-    data = mgame.make_keys(1,2,3,4)
-
-    mgame.checkdata(data)
+    strs = 'TG20{this'
+    mgame.getKey(strs[:8])
+    mgame.checkdata('aa1baa1fF'[:8])
+    #mgame.checkdata(data)
 # okay decompiling keygame.pyc
