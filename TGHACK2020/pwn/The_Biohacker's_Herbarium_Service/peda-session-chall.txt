@@ -1,2 +1,4 @@
-break *get_num
+break *$1+0x1766
+break *$1+0x162f
+break *$1+0x139e
 

