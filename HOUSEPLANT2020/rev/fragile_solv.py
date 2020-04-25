@@ -1,0 +1,12 @@
+enc = "\xc3\x90\xc3\x98\xc3\x93\xc2\x99\xc2\xa7\xc3\xa5\xc2\x92\xc3\x8d\xc3\xa8\xc3\x92\xc3\x81\xc2\xa1\xc2\x97"
+
+key = "h1_th3r3_1ts_m3"
+
+flags = []
+for i in range(len(key)):
+	flags.append(ord(enc[i]) - ord(key[i]))
+
+print bytearray(flags)
+	
+
+
