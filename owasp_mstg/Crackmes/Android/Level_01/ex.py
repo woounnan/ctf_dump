@@ -12,7 +12,8 @@ PROCESS_NAME = "owasp.mstg.uncrackable1"
  
 jscode= """
 console.log("[*] Starting script");
-    Java.perform(function() {
+Java.perform(function() {
+    /*
         var class_exit = null;
         class_exit = Java.use("java.lang.System");
         class_exit.exit.implementation = function() {
@@ -30,6 +31,7 @@ console.log("[*] Starting script");
             console.log('serial: ', serial);
             return res;
         }
+        */
     });
 """
 
