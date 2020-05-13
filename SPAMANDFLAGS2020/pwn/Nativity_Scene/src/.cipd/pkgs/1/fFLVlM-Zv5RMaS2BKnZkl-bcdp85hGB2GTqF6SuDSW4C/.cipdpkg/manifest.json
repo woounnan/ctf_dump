@@ -1,0 +1,18 @@
+{
+  "format_version": "1.1",
+  "package_name": "infra/tools/luci/isolate/linux-amd64",
+  "version_file": ".versions/isolate.cipd_version",
+  "files": [
+    {
+      "name": "isolate",
+      "size": 15975777,
+      "executable": true,
+      "hash": "Mv_sm6bvrfcek3dZTOggCVk7LvEhftlfdmBzlNSw584C"
+    },
+    {
+      "name": ".versions/isolate.cipd_version",
+      "size": 125,
+      "hash": "a0VDmdwSZFHRB__HGatEHXueHkp9XbIbCqTSc1NlMJkC"
+    }
+  ]
+}
