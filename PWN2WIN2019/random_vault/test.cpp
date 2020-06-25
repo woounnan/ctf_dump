@@ -2,6 +2,5 @@
 
 int main(){
 	int a, b, c;
-	printf("1234%n5678%n9abc%n\n", &a, &b, &c);
-	printf("%d\n%d\n%d\n", a, b, c);
+	printf("%2$lxx\n", 0x1111,0x2222,0x3333);
 }
