@@ -14,8 +14,7 @@ serial = [ int(x, 16) for x in serial]
 flag = ''
 for idx in range(0x1f):
     tp = serial[idx] ^ idx 
-    if idx % 7 == 0:
-        tp = rotr(tp, idx)
+    tp = rotr(tp, idx&7)
     flag += chr(tp)
 print flag
 
