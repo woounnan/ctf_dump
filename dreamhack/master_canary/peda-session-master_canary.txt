@@ -1,0 +1,3 @@
+break *thread_routine+20
+break *main+24
+
