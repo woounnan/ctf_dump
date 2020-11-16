@@ -1,9 +1,3 @@
-break *read_bytes+98 
-  condition $bpnum $rax == 0x10
-break *read_bytes+98 
-  condition $bpnum $rax == 0x100
-break *read_bytes+98 
-  condition $bpnum $rax == 0x1000
-break *read_bytes+98 
-  condition $bpnum $rax == 0x9000
+break *0x400a7c
+break *main+335
 
