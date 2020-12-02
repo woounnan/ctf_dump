@@ -84,6 +84,7 @@ public:
         mangoflag = 0;
     }
     void (*description)(void);
+    int tt;
 };
 
 
