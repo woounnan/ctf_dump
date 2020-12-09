@@ -1,2 +1,2 @@
-break *0x400722
+break *main
 
