@@ -1,0 +1,4 @@
+break *_IO_new_do_write
+break *0x7f533c085c0a
+
+
