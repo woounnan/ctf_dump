@@ -8,7 +8,7 @@ app = Flask(__name__)
 app.secret_key = os.urandom(32)
 from flask import _app_ctx_stack
 
-DATABASE = 'users.db'
+DATABASE = 'myDb.db'
 
 def get_db():
     top = _app_ctx_stack.top
@@ -38,6 +38,7 @@ def login():
     level = request.form.get('level', '9').lower()
 
     sqli_filter = ['[', ']', ',', 'admin', 'select', '\'', '"', '\t', '\n', '\r', '\x08', '\x09', '\x00', '\x0b', '\x0d', ' ']
+    '''
     for x in sqli_filter:
         if uid.find(x) != -1:
             return 'No Hack!'
@@ -45,6 +46,7 @@ def login():
             return 'No Hack!'
         if level.find(x) != -1:
             return 'No Hack!'
+    '''
 
     
     with app.app_context():
@@ -53,8 +55,10 @@ def login():
         try:
             req = conn.execute(query)
             result = req.fetchone()
-
             if result is not None:
+                print ('######')
+                print (result[0])
+                print ('######')
                 uid = result[0]
                 if uid == 'admin':
                     return FLAG

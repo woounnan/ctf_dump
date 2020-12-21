@@ -11,6 +11,10 @@ def index():
 
 @app.route('/<path:file>')
 def file(file):
-	return open(file).read()
+        print('###################')
+        print(file)
+        print('###################')
+        ret = open(file).read()
+        return ret
 
-app.run(host='0.0.0.0', port=8000, threaded=True, debug=True)
+app.run(host='0.0.0.0', port=8888, threaded=True)
