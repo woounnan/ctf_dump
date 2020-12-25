@@ -6,11 +6,24 @@ v2 = [ 0x69, 0x22, 0x22, 0x38, 0x1F, 0x43, 0x5B, 0x1C, 0x45, 0xE, 0x3C, 0x8, 0x5
 
 def Calc(v0, len_v0, v1, len_v1):
     calc = []
-    for idx in range(0x3e):
-        r = (idx/len(v1))*len(v1)
-        r = v0[idx] | v1[idx - r] 
+    for idx in range(len_v0):
+        r = (idx/len(v1))*len_v1
+        r = v0[idx] ^ v1[idx - r] 
         r &= 0xff
         calc.append(r) 
     return calc
 
-r = Calc(v)
+r = Calc(v1, len(v1), v0, len(v0))
+print hex(len(v1))
+print r
+_in = [0 for x in range(8)]
+_in[6] = r[0xe]
+_in[4] = r[0x3]
+_in[3] = r[0xa]
+_in[7] = r[0x11]
+_in[1] = r[0xe]
+_in[5] = r[0x34]
+_in[0] = r[0x35]
+_in[2] = r[0x2]
+r = Calc(v2, len(v2), _in, len(_in))
+print(''.join([chr(x) for x in r]))
