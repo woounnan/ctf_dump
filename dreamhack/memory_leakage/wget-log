@@ -1,6 +1,0 @@
---2020-08-14 16:54:17--  https://sfo2.digitaloceanspaces.com/wargame1/public/87a12785-ba18-4ebf-9196-2d859dedbff2.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256
-Resolving sfo2.digitaloceanspaces.com (sfo2.digitaloceanspaces.com)... 138.68.32.225, 64:ff9b::8a44:20e1
-Connecting to sfo2.digitaloceanspaces.com (sfo2.digitaloceanspaces.com)|138.68.32.225|:443... connected.
-HTTP request sent, awaiting response... 403 Forbidden
-2020-08-14 16:54:18 ERROR 403: Forbidden.
-

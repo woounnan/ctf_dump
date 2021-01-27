@@ -1,2 +1,0 @@
-break *_IO_new_fclose
-

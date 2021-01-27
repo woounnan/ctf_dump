@@ -1,3 +1,0 @@
-break *read_str
-break *read_command
-
