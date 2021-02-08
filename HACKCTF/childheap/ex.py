@@ -12,6 +12,8 @@ def Free(idx):
 p = process('childheap')
 Malloc(0, 128, 'aaaaaa')
 Malloc(1, 128, 'bbbbbb')
+raw_input('debug: ' + str(p.pid))
 Free(0)
 Free(1)
 Free(0)
+p.interactive()
