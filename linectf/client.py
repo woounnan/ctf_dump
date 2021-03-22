@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-
+from pwn import *
 import sys
 import json
 import asyncio
@@ -49,8 +49,11 @@ async def rpc_client(message):
     message = json.dumps(message, default=object_to_dict)
 
     reader, writer = await asyncio.open_connection(sys.argv[1], int(sys.argv[2]))
+
     writer.write(message.encode())
+    print('[*]write: ' + str(message.encode()))
     data = await reader.read(2000)
+    print('[*]read: ' + str(data))
     writer.close()
 
     res = json.loads(data, object_hook=dict_to_object)
