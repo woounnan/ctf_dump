@@ -1,3 +1,3 @@
 # Personal CTF repository
 
-challenge binaries collection
+collection of challenge and binaries
